@@ -1,0 +1,42 @@
+﻿@using AgendaTelefonica.MVC.Helpers
+@{ 
+    if (TempData["AlertaFeedback"] != null)
+    {
+        AlertaFeedback alertaFeedback = TempData["AlertaFeedback"] as AlertaFeedback;
+
+        string classDiv = string.Empty;
+        string classIcon = string.Empty;
+
+
+        switch (alertaFeedback.TipoAlertaFeedback)
+        {
+            case EnumTipoAlertaFeedback.Sucesso:
+                classDiv = "alert-success";
+                classIcon = "fa-check";
+
+                break;
+            case EnumTipoAlertaFeedback.Erro:
+                classDiv = "alert-danger";
+                classIcon = "fa-ban";
+
+                break;
+            case EnumTipoAlertaFeedback.Atencao:
+                classDiv = "alert-warning";
+                classIcon = "fa-exclamation-circle";
+
+                break;
+            default:
+                break;
+        }
+        <div class="box-body alert" style="padding-bottom: 0px; margin-bottom: 5px; max-height: 160px; overflow-y: auto; word-wrap: break-word;" id="AlertaFeddBack">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="margin-right:3px;">&times;</button>
+            <div class="alert @classDiv alert-dismissible" style="margin-bottom: 5px;">
+                <h4><i class="icon fa @classIcon"></i> @alertaFeedback.Titulo</h4>
+                <div style="white-space:pre-line;">@{ if (!String.IsNullOrEmpty(alertaFeedback.CodigoExcecao))
+                    {<b>Código: </b>@alertaFeedback.CodigoExcecao<br />}}@alertaFeedback.Mensagem.Trim()</div>
+                </div>
+                <hr style="margin-top: 0px; margin-bottom: 0px;border-color:#d2d6de;" />
+            </div>
+                    }
+}
+

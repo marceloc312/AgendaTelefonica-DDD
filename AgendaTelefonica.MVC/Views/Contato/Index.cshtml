@@ -1,0 +1,143 @@
+﻿@using AgendaTelefonica.MVC.Helpers
+@{
+    ViewBag.Title = "Index";
+}
+@section scriptCss
+{
+    <link href="@Url.Content("~/Content/css/dataTables/dataTables.bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/dataTables/dataTables.tableTools.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/select2/select2.min.css")" rel="stylesheet" />
+}
+
+<!--GRID-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-default no-margin">
+            <div class="box-header with-border">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="box-title"><i class="fa fa-fw fa-table"></i>Resultado</h3>
+                    </div>
+
+                    <div class="col-md-2">
+                        <a href="~/Contato/Edit" class="btn btn-success form-control" style="vertical-align: middle;" title="Novo"><i class="fa fa-fw fa-add"></i>Novo</a>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        @Html.Label("Nome:")
+                        @Html.TextBox("Nome", "", new { @class = "form-control ", @indiceTabela = 0, @idTabela = "tblContato", @style = "width: 100%;" })
+                    </div>
+                    <div class="col-md-2">
+                        <label>&nbsp;</label>
+                        <button type="button" class="btn btn-primary form-control btnFiltrar" style="vertical-align: middle;" title="Pesquisar" idTabela="tblContato"><i class="fa fa-fw fa-search"></i>Pesquisar</button>
+                    </div>
+                    <div class="col-md-2">
+                        <label>&nbsp;</label>
+                        <button type="button" class="btn btn-primary form-control btnLimpar" style="vertical-align: middle;" title="Limpar"><i class="fa fa-fw fa-trash-o"></i>Limpar</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-body">
+                <table id="tblContato" class="table table-bordered table-hover">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Ação</th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                @Html.Label(" ", new { @class = "help-block", @id = "MsgValidacao" })
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@{
+    string url = "~/Contato/Listar";
+
+}
+
+@section scriptJs{
+
+
+    <script type="text/javascript" src="@Url.Content("~/scripts/plugins/dataTables/jquery.dataTables.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/plugins/dataTables/dataTables.bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/scripts/plugins/dataTables/dataTables.tableTools.js")"></script>
+    <script src="@Url.Content("~/scripts/plugins/dataTables/ZeroClipboard.js")"></script>
+    <script src="@Url.Content("~/scripts/plugins/dataTables/TableTools.js")"></script>
+    <script src="@Url.Content("~/scripts/plugins/dataTables/customFilters.js")"></script>
+    <script src="@Url.Content("~/scripts/plugins/select2/select2.js")"></script>
+    <script src="@Url.Content("~/scripts/plugins/select2/i18n/pt-BR.js")"></script>
+    <script>
+        $(".select2").each(function (index, value) {
+            var placeh = $(this).attr("placeholder");
+            $(this).select2({
+                placeholder: placeh,
+                allowClear: true,
+                language: "pt-BR"
+            });
+        });
+        var oTable = null;
+        $(function() {
+
+            oTable = $('#tblContato').DataTable({
+                "serverSide": true,
+                "ajax": {
+                    "type": "POST",
+                    "url": '@Url.Content(url)',
+                    "contentType": 'application/json; charset=utf-8',
+                    'data': function(data) { return data = JSON.stringify(data);
+                    },
+                },
+                "scrollX": true,
+                "processing": true,
+                "paging": true,
+                "pageLength": 30,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+                "deferRender": false,
+                "language":
+                {
+                    "url": "@Url.Content("~/scripts/plugins/dataTables/languagePT-BR.json")"
+                },
+                "columns": [
+           {
+               "data": "Id",
+               "render": function(data) {
+                   var links = "";
+                    @{
+                    <text>
+                  links =  "<a href='@Url.Action("edit", "Contato")?id=" + data + "' title='Editar' class='btn btn-xs btn-warning'><span class='fa fa-edit'></span></a>";
+                     links += "<a onclick='return confirm(\"Deseja excluir esse registro?\");' href='@Url.Action("delete", "contato")?id=" + data + "' title='Excluir' class='btn btn-xs btn-danger'><span class='fa fa-ban'></span></a>";
+                   </text>
+                        }
+                   return links;
+               }
+           },
+           { "data": "Nome" },
+           { "data": "Telefone" },
+           { "data": "Email" },
+                ],
+                "order": [1, "asc"],
+                dom: 'T<"clear">lfrtip',
+                tableTools: {
+                    "sSwfPath": '',
+                   "aButtons": []
+                },
+            });
+
+
+        });
+    </script>
+
+}

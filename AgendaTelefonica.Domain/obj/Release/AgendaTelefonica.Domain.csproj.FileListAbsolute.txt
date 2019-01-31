@@ -1,0 +1,8 @@
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\bin\Release\AgendaTelefonica.Domain.dll
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\bin\Release\AgendaTelefonica.Domain.pdb
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\obj\Release\AgendaTelefonica.Domain.csprojAssemblyReference.cache
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\obj\Release\AgendaTelefonica.Domain.Entities.Validations.ValidationMessages.resources
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\obj\Release\AgendaTelefonica.Domain.csproj.GenerateResource.cache
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\obj\Release\AgendaTelefonica.Domain.csproj.CoreCompileInputs.cache
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\obj\Release\AgendaTelefonica.Domain.dll
+C:\Users\marcelocostamiranda\source\repos\AgendaTelefonica\AgendaTelefonica.Domain\obj\Release\AgendaTelefonica.Domain.pdb

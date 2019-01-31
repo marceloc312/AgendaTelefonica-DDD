@@ -1,0 +1,37 @@
+﻿@using AgendaTelefonica.MVC.Helpers
+@model AgendaTelefonica.MVC.ViewModel.ContatoTelefoneViewModel
+
+
+
+<div class="row linhaDivisao" style="@(Model.Excluir == true ? "display: none;" : "") ">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.ContatoId)
+
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.DDD, htmlAttributes: new { @class = "control-label" })
+
+        @Html.EditorFor(model => model.DDD, new { htmlAttributes = new { @class = "form-control", maxlength = "4" } })
+        @Html.ValidationMessageFor(model => model.DDD, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label" })
+
+        @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control", maxlength = "9" } })
+        @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="col-md-4">
+        @Html.Label("Classificação", htmlAttributes: new { @class = "control-label" })
+
+        @Html.DropDownListFor(x => x.Classificacao, new SelectList(Enum.GetValues(typeof(AgendaTelefonica.Domain.Entities.Enums.EnumClassificacao))), "", new { @class = "select2 form-control ", @style = "width: 100%;", @placeholder = "Selecione" })
+        @Html.ValidationMessageFor(model => model.Classificacao, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="col-md-1 colRemoveLista" style="margin-top: 24px;" idRegistroListaPai="@Model.Id">
+        @Html.LinkToRemoveNestedForm("Remover", "div.linhaTelefone", "input.mark-for-delete")
+        @Html.HiddenFor(model => model.Excluir, new { @class = "mark-for-delete" })
+    </div>
+</div>
+

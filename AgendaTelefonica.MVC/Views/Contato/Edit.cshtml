@@ -1,0 +1,143 @@
+﻿@using AgendaTelefonica.MVC.Helpers
+@model AgendaTelefonica.MVC.ViewModel.ContatoViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section scriptCss{
+    <link href="@Url.Content("~/Content/css/iCheck/minimal/_all.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/select2/select2.min.css")" rel="stylesheet" />
+}
+@using (Html.BeginForm("Edit", "Contato", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    <section class="content-header">
+        <h1>
+            Contato
+            @{
+                if (Model.Id == 0)
+                {
+                    <small>Cadastrar</small>
+                }
+                else
+                {
+                    <small>Editar</small>
+                }
+            }
+
+        </h1>
+    </section>
+    <section class="content">
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-body">
+
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_princ_1" data-toggle="tab">Informações Básicas</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_princ_1">
+                                <fieldset>
+                                    <legend style="margin-bottom: 2px;">Cabeçalho</legend>
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @*@Html.HiddenFor(model => model.Id)*@
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label" })
+
+                                            @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                                        </div>
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })
+
+                                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", maxlength = "60" } })
+                                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Empresa, htmlAttributes: new { @class = "control-label" })
+
+                                            @Html.EditorFor(model => model.Empresa, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })
+                                            @Html.ValidationMessageFor(model => model.Empresa, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label" })
+
+                                            @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control", maxlength = "150" } })
+                                            @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <br />
+
+                                <fieldset>
+                                    <legend style="margin-bottom: 2px;">Telefone</legend>
+
+                                    <div id="ContatoTelefoneContainer">
+                                        @Html.EditorFor(model => model.Telefone)
+                                    </div>
+                                    <br />
+                                    <div class="col-md-4 linkAddTelefone">
+                                        @Html.LinkToAddNestedForm("Adicionar Telefone", "#ContatoTelefoneContainer", ".linhaTelefone", "Telefone", typeof(AgendaTelefonica.MVC.ViewModel.ContatoTelefoneViewModel), true, false, false, false)
+                                    </div>
+
+                                    <hr />
+                                </fieldset>
+
+
+                                <fieldset>
+                                    <legend style="margin-bottom: 2px;">E-mail</legend>
+
+                                    <div id="ContatoEmailContainer">
+                                        @Html.EditorFor(model => model.Email)
+                                    </div>
+                                    <br />
+                                    <div class="col-md-4 linkAddEmail">
+                                        @Html.LinkToAddNestedForm("Adicionar Email", "#ContatoEmailContainer", ".linhaEmail", "Email", typeof(AgendaTelefonica.MVC.ViewModel.ContatoEmailViewModel), true, false, false, false)
+                                    </div>
+
+                                    <hr />
+                                </fieldset>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="~/Contato" class="btn btn-danger form-control" style="vertical-align: middle;" title="Novo"><i class="fa fa-fw fa-add"></i>Cancelar</a>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="Salvar" class="btn btn-success form-control" />
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@section scriptJs{
+    <script src="@Url.Content("~/scripts/plugins/select2/select2.js")"></script>
+    <script src="@Url.Content("~/scripts/plugins/select2/i18n/pt-BR.js")"></script>
+    <script>
+        $(".select2").each(function (index, value) {
+            var placeh = $(this).attr("placeholder");
+            $(this).select2({
+                placeholder: placeh,
+                allowClear: true,
+                language: "pt-BR"
+            });
+        });
+
+    </script>
+}

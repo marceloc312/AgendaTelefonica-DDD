@@ -1,0 +1,66 @@
+﻿@using AgendaTelefonica.MVC.ViewsModels.Comum
+@using System.Collections.Generic;
+
+@{
+    List<MenuVM> menu = new MenuVM().ObterMenu();
+
+    string nomeController = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+}
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/Content/img/user.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Usuário Logado")</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+
+        @{
+            if (menu != null && menu.Count > 0)
+            {
+                <ul class="sidebar-menu">
+                    <li class="header">MENU</li>
+
+                    @foreach (MenuVM itemMenu in menu)
+                    {
+                        <li class="treeview @(itemMenu.Ativo.Contains(nomeController) ? "active" : "" )">
+                            <a href="#">
+                                <i class="@itemMenu.Icone"></i> <span>@itemMenu.Descricao</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                @foreach (MenuVM itemSubItem in itemMenu.SubItens)
+                                {
+                                    if (itemSubItem.SubItens == null || itemSubItem.SubItens.Count() == 0)
+                                    {
+                                        <li class="@(itemSubItem.Ativo.Contains(nomeController) ? "active" : "" )">
+                                            <a href="@Url.Content(itemSubItem.Url)" style="white-space: normal;"><i class="@itemSubItem.Icone"></i> @itemSubItem.Descricao</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="@(itemSubItem.Ativo.Contains(nomeController) ? "active" : "" )">
+                                            <a href="#" style="white-space: normal;"><i class="fa @itemSubItem.Icone"></i> @itemSubItem.Descricao <i class="fa fa-angle-left pull-right"></i></a>
+                                            <ul class="treeview-menu">
+                                                @{ foreach (MenuVM itemSubItemItem in itemSubItem.SubItens)
+                                                    {
+                                                        <li class="@(itemSubItemItem.Ativo.Contains(nomeController) ? "active" : "" )">
+                                                            <a href="@Url.Content(itemSubItemItem.Url)" style="white-space: normal;"><i class="fa fa-circle-o"></i> @itemSubItemItem.Descricao</a>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+            }
+        }
+    </section>
+</aside>

@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{1ADC627B-164A-4C53-9DF4-1298F4704ED9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{66DEECC6-DE4A-485F-8FA0-0FEDB07A5AFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{03AE485E-34B6-47D9-89E5-0A98DB618C05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{0AB26689-8FD8-4DBA-8EA4-944DFE8A691E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Test", "0 - Test", "{50E701A2-0BDD-4A32-BC0D-C2D2B0767CB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.Domain", "AgendaTelefonica.Domain\AgendaTelefonica.Domain.csproj", "{E7142F75-C321-4DF2-BF94-18845373DCD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{A939F79F-B72E-4DA8-BCEE-BE3D63653CD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.Data.Context", "AgendaTelefonica.Data.Context\AgendaTelefonica.Data.Context.csproj", "{118BA544-5A5D-4E3A-BE4B-36141C8077E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.Data.Repository", "AgendaTelefonica.Data.Repository\AgendaTelefonica.Data.Repository.csproj", "{C4E1F22B-60DB-47DD-8D41-E09ADF103DD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.Test", "AgendaTelefonica.Test\AgendaTelefonica.Test.csproj", "{F1D9446B-3644-4A7C-A68C-6AE865D45234}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCuting", "4.2 - CrossCuting", "{80252E6E-D0FA-49F6-A2FA-B763739B949D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.InversionOfControl", "AgendaTelefonica.InversionOfControl\AgendaTelefonica.InversionOfControl.csproj", "{D432E944-1E05-475C-A787-D10E841A307F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.ApplicationService", "AgendaTelefonica.ApplicationService\AgendaTelefonica.ApplicationService.csproj", "{0442A134-53B9-45C8-A8DA-9452923D9E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.MVC", "AgendaTelefonica.MVC\AgendaTelefonica.MVC.csproj", "{C51B4E53-A0ED-4F13-A1DC-9D59BD1BED4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7142F75-C321-4DF2-BF94-18845373DCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7142F75-C321-4DF2-BF94-18845373DCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7142F75-C321-4DF2-BF94-18845373DCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7142F75-C321-4DF2-BF94-18845373DCD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{118BA544-5A5D-4E3A-BE4B-36141C8077E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118BA544-5A5D-4E3A-BE4B-36141C8077E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118BA544-5A5D-4E3A-BE4B-36141C8077E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118BA544-5A5D-4E3A-BE4B-36141C8077E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4E1F22B-60DB-47DD-8D41-E09ADF103DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E1F22B-60DB-47DD-8D41-E09ADF103DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E1F22B-60DB-47DD-8D41-E09ADF103DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E1F22B-60DB-47DD-8D41-E09ADF103DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D9446B-3644-4A7C-A68C-6AE865D45234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D9446B-3644-4A7C-A68C-6AE865D45234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D9446B-3644-4A7C-A68C-6AE865D45234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D9446B-3644-4A7C-A68C-6AE865D45234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D432E944-1E05-475C-A787-D10E841A307F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D432E944-1E05-475C-A787-D10E841A307F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D432E944-1E05-475C-A787-D10E841A307F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D432E944-1E05-475C-A787-D10E841A307F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0442A134-53B9-45C8-A8DA-9452923D9E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0442A134-53B9-45C8-A8DA-9452923D9E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0442A134-53B9-45C8-A8DA-9452923D9E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0442A134-53B9-45C8-A8DA-9452923D9E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51B4E53-A0ED-4F13-A1DC-9D59BD1BED4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51B4E53-A0ED-4F13-A1DC-9D59BD1BED4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51B4E53-A0ED-4F13-A1DC-9D59BD1BED4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51B4E53-A0ED-4F13-A1DC-9D59BD1BED4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E7142F75-C321-4DF2-BF94-18845373DCD2} = {03AE485E-34B6-47D9-89E5-0A98DB618C05}
+		{A939F79F-B72E-4DA8-BCEE-BE3D63653CD5} = {0AB26689-8FD8-4DBA-8EA4-944DFE8A691E}
+		{118BA544-5A5D-4E3A-BE4B-36141C8077E4} = {A939F79F-B72E-4DA8-BCEE-BE3D63653CD5}
+		{C4E1F22B-60DB-47DD-8D41-E09ADF103DD2} = {A939F79F-B72E-4DA8-BCEE-BE3D63653CD5}
+		{F1D9446B-3644-4A7C-A68C-6AE865D45234} = {50E701A2-0BDD-4A32-BC0D-C2D2B0767CB9}
+		{80252E6E-D0FA-49F6-A2FA-B763739B949D} = {0AB26689-8FD8-4DBA-8EA4-944DFE8A691E}
+		{D432E944-1E05-475C-A787-D10E841A307F} = {80252E6E-D0FA-49F6-A2FA-B763739B949D}
+		{0442A134-53B9-45C8-A8DA-9452923D9E0D} = {66DEECC6-DE4A-485F-8FA0-0FEDB07A5AFC}
+		{C51B4E53-A0ED-4F13-A1DC-9D59BD1BED4E} = {1ADC627B-164A-4C53-9DF4-1298F4704ED9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10745320-FE2B-4BFE-8137-1D0761EED44E}
+	EndGlobalSection
+EndGlobal
